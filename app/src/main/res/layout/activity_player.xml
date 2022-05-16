@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="song"
+            type="com.example.mediaplayer.model.entity.Song" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_name_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{song.name}"/>
+        <TextView
+            android:id="@+id/tv_singer_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{song.singer}"/>
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/exo_player_view"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center"/>
+        <SeekBar
+            android:id="@+id/sb_volume"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:progressBackgroundTint="#555555"
+            android:progressTint="@android:color/black"
+            />
+
+    </LinearLayout>
+</layout>

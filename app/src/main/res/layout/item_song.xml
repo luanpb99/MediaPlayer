@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="song"
+            type="com.example.mediaplayer.model.entity.Song" />
+    </data>
+    <RelativeLayout
+        android:id="@+id/rl_song_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ic_song"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_name_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{song.name}"
+            android:layout_toRightOf="@+id/ic_song"/>
+        <TextView
+            android:id="@+id/tv_singer_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{song.singer}"
+            android:layout_toRightOf="@+id/ic_song"
+            android:layout_below="@+id/tv_name_song"/>
+
+    </RelativeLayout>
+</layout>
