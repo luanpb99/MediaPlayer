@@ -14,10 +14,19 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class SongRepository {
-    MutableLiveData<SongResponse> data = new MutableLiveData<>();
+public class Repository {
 
-    public LiveData<SongResponse> getCategoryResponse(String category,Context context){
+    public MutableLiveData<CategoryResponse> getCategoryResponse(){
+        MutableLiveData<CategoryResponse> data = new MutableLiveData<>();
+        Observable<CategoryResponse> oData = RestClient.getInstance().getAppClient().getCategories();
+        oData.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(o -> data.setValue(o));
+        return data;
+    }
+
+    public LiveData<SongResponse> getSongResponse(String category, Context context){
+        MutableLiveData<SongResponse> data = new MutableLiveData<>();
         Observable<SongResponse> oData = RestClient.getInstance().getAppClient().getSongs(Utils.getDeviceCode(context),0,category);
         oData.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

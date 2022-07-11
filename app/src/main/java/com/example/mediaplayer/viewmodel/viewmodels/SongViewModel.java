@@ -6,15 +6,15 @@ import androidx.databinding.BaseObservable;
 import androidx.lifecycle.LiveData;
 
 import com.example.mediaplayer.model.response.SongResponse;
-import com.example.mediaplayer.viewmodel.repository.SongRepository;
+import com.example.mediaplayer.viewmodel.repository.Repository;
 
 public class SongViewModel extends BaseObservable {
-    private SongRepository songRepository;
+    private Repository songRepository;
 
     public SongViewModel() {
-        this.songRepository = new SongRepository();
+        this.songRepository = new Repository();
     }
     public LiveData<SongResponse> getSongResponse(String category, Context context){
-        return songRepository.getCategoryResponse(category,context);
+        return songRepository.getSongResponse(category,context);
     }
 }

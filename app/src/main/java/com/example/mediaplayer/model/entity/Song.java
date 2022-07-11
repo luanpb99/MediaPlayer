@@ -9,6 +9,7 @@ public class Song implements Serializable {
     private String name;
     private String singer;
     private String uriSong;
+    private String uriImg;
 
     public int getId() {
         return id;
@@ -46,5 +47,7 @@ public class Song implements Serializable {
         return uriSong;
     }
 
-
+    public String getUriImg() {
+        return uriImg;
+    }
 }
